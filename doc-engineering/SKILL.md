@@ -23,6 +23,8 @@ and tooling (git hooks + periodic audit) catches drift when AI-controlled mainte
 ```
 Product/
 ├── Reference.md          ← Product brief + Function Index (links to each function folder)
+├── Overview.md           ← Product-level feature map: user journey, feature relationships, groupings
+├── Architecture.md       ← Codebase-level global view: layers, module deps, data flow, key decisions
 └── Functions/
     └── <FunctionName>/
         ├── PRD.md        ← metadata + Product Requirements
@@ -41,6 +43,7 @@ When the user wants to set up Document Engineering from scratch:
 
 1. Ask for: the product name, and a list of top-level functions/features (or infer from existing code).
 2. Generate the full folder tree with stub files (use templates from `references/templates.md`).
+   - This includes `Reference.md`, `Overview.md`, and `Architecture.md` at the product level.
 3. Write `CLAUDE.md` (or append to existing) using the rule in `references/claude-md-rule.md`.
 4. Install the pre-commit hook using the script at `scripts/install-hook.sh`.
 5. Show the user the tree and explain each file's purpose.
@@ -65,6 +68,8 @@ After any modification, deletion, or addition of functionality:
    - `CHANGELOG.md` — always: add a dated entry describing what changed
 3. If the function was deleted: move its folder to `Product/Functions/_deprecated/` and remove it from `Reference.md`.
 4. If `Reference.md`'s brief or index is stale, update it.
+5. If the change affects cross-function user flows or feature relationships, update `Overview.md`.
+6. If the change affects the overall architecture, module boundaries, or data flow, update `Architecture.md`.
 
 ### 4. Install drift detection
 
@@ -85,85 +90,9 @@ When the user asks "are my docs in sync?" or similar:
 
 ---
 
-## File content rules
-
-### PRD.md
-```
----
-related_prd: []   # list of other PRD.md paths this depends on
----
-
-# <FunctionName> — PRD
-
-## Purpose
-...
-
-## Requirements
-...
-
-## Out of scope
-...
-```
-
-### Code.md
-```
----
-related_code: []  # list of other Code.md paths this depends on
----
-
-# <FunctionName> — Code
-
-## Codebase Index
-| File | Role |
-|------|------|
-
-## Data Model
-...
-
-## State
-...
-
-## Key decisions
-...
-```
-
-### QA.md
-```
-# <FunctionName> — QA Checklist
-
-## Happy Path
-- [ ] ...
-
-## Edge Cases
-- [ ] ...
-```
-
-### CHANGELOG.md
-```
-# <FunctionName> — CHANGELOG
-
-## [Unreleased]
-
-## [Init] YYYY-MM-DD
-- Initial scaffold
-```
-
-### Reference.md
-```
-# <ProductName>
-
-## Brief
-One-paragraph description of the product.
-
-## Function Index
-| Function | PRD | Code | QA | CHANGELOG |
-|----------|-----|------|----|-----------|
-| FunctionName | [PRD](Functions/FunctionName/PRD.md) | [Code](Functions/FunctionName/Code.md) | [QA](Functions/FunctionName/QA.md) | [CHANGELOG](Functions/FunctionName/CHANGELOG.md) |
-```
-
----
-
 ## References
+
+When generating any file, read the corresponding template from `references/templates.md` first — do not invent structure from memory.
 
 - Templates and full file stubs: `references/templates.md`
 - CLAUDE.md rule text: `references/claude-md-rule.md`

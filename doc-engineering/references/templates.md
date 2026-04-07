@@ -13,11 +13,96 @@ Use these as the starting point when scaffolding a new function or product.
 
 <One paragraph describing what this product does, who it's for, and its core value.>
 
+## Global Docs
+
+- [Product Overview](Overview.md) — feature map, user journey, feature relationships
+- [Architecture](Architecture.md) — layers, module deps, data flow, key decisions
+
 ## Function Index
 
-| Function | PRD | Code | QA | CHANGELOG |
-|----------|-----|------|----|-----------|
-| <FunctionName> | [PRD](Functions/<FunctionName>/PRD.md) | [Code](Functions/<FunctionName>/Code.md) | [QA](Functions/<FunctionName>/QA.md) | [CHANGELOG](Functions/<FunctionName>/CHANGELOG.md) |
+| Function | Brief | PRD | Code | QA | CHANGELOG |
+|----------|-------|-----|------|----|-----------|
+| <FunctionName> | <Brief> | [PRD](Functions/<FunctionName>/PRD.md) | [Code](Functions/<FunctionName>/Code.md) | [QA](Functions/<FunctionName>/QA.md) | [CHANGELOG](Functions/<FunctionName>/CHANGELOG.md) |
+```
+
+---
+
+## Product/Overview.md
+
+```markdown
+# <ProductName> — Product Overview
+
+## Core Value
+
+<One sentence: what problem this product solves and for whom.>
+
+## User Journey
+
+<Step-by-step narrative of the primary usage flow:>
+
+1. Step one
+2. Step two
+3. ...
+
+## Feature Map
+
+<How functions relate to each other. Group by theme or dependency.>
+
+### <Group Name>
+
+- **FunctionA** — brief role
+- **FunctionB** — brief role, depends on FunctionA
+
+## Out of Scope
+
+- <What this product deliberately does not do.>
+```
+
+---
+
+## Product/Architecture.md
+
+```markdown
+# <ProductName> — Architecture
+
+## Directory Structure
+
+<Annotated tree of the key source directories:>
+
+```
+src/
+├── <layerA>/   ← <responsibility>
+├── <layerB>/   ← <responsibility>
+└── <layerC>/   ← <responsibility>
+```
+
+## Layers
+
+| Layer | Directory | Responsibility |
+|-------|-----------|----------------|
+| <LayerA> | src/<layerA>/ | <what it does> |
+| <LayerB> | src/<layerB>/ | <what it does> |
+
+## Data Model
+
+<Key entities and their relationships:>
+
+| Entity | Key Fields | Notes |
+|--------|-----------|-------|
+|        |           |       |
+
+## Data Flow
+
+<How data moves through the system for the primary use case:>
+
+```
+Input → <LayerA> → <LayerB> → Output
+```
+
+## Key Design Decisions
+
+- <Why this framework/library/pattern was chosen>
+- <Significant tradeoffs made>
 ```
 
 ---

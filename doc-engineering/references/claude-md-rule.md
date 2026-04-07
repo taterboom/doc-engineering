@@ -33,6 +33,11 @@ Types: `Init` / `Feature` / `Fix` / `Refactor` / `Break` / `Deprecate`
 
 If a new function was added or removed, update the Function Index table in `Product/Reference.md`.
 
+### Overview.md and Architecture.md
+
+- If the change affects cross-function user flows or feature relationships, update `Product/Overview.md`.
+- If the change affects overall architecture, module boundaries, data flow, or global design decisions, update `Product/Architecture.md`.
+
 ### Never skip this
 
 Doc updates are not optional. If you are unsure which doc to update, err on the side of updating
