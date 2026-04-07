@@ -1,0 +1,19 @@
+{
+  "name": "doc-engineering",
+  "version": "1.0.0",
+  "description": "A Claude Code custom skill for structured documentation engineering — scaffolding, drift detection, and doc lifecycle management.",
+  "scripts": {
+    "build": "mkdir -p dist && zip -r dist/doc-engineering.zip doc-engineering/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taterboom/doc-engineering.git"
+  },
+  "keywords": ["claude", "skill", "documentation", "doc-engineering"],
+  "author": "taterboom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taterboom/doc-engineering/issues"
+  },
+  "homepage": "https://github.com/taterboom/doc-engineering#readme"
+}
