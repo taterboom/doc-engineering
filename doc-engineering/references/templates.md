@@ -17,12 +17,13 @@ Use these as the starting point when scaffolding a new function or product.
 
 - [Product Overview](Overview.md) — feature map, user journey, feature relationships
 - [Architecture](Architecture.md) — layers, module deps, data flow, key decisions
+- [CHANGELOG](CHANGELOG.md) — unified changelog for all functions and product-level changes
 
 ## Function Index
 
-| Function | Brief | PRD | Code | QA | CHANGELOG |
-|----------|-------|-----|------|----|-----------|
-| <FunctionName> | <Brief> | [PRD](Functions/<FunctionName>/PRD.md) | [Code](Functions/<FunctionName>/Code.md) | [QA](Functions/<FunctionName>/QA.md) | [CHANGELOG](Functions/<FunctionName>/CHANGELOG.md) |
+| Function | Brief | PRD | Code | QA |
+|----------|-------|-----|------|----|
+| <FunctionName> | <Brief> | [PRD](Functions/<FunctionName>/PRD.md) | [Code](Functions/<FunctionName>/Code.md) | [QA](Functions/<FunctionName>/QA.md) |
 ```
 
 ---
@@ -203,13 +204,23 @@ related_code:
 
 ---
 
-## Product/Functions/<FunctionName>/CHANGELOG.md
+## Product/CHANGELOG.md
 
 ```markdown
-# <FunctionName> — CHANGELOG
+# <ProductName> — CHANGELOG
 
 ## [Unreleased]
 
 ## [Init] <YYYY-MM-DD>
-- Initial scaffold
+- **<FunctionName>**: Initial scaffold
 ```
+
+Entry format:
+
+```
+## [<Type>] YYYY-MM-DD
+- **<FunctionName>**: description of what changed and why
+- **Overview**: description (if product-level docs changed)
+```
+
+Types: `Init` / `Feature` / `Fix` / `Refactor` / `Break` / `Deprecate`

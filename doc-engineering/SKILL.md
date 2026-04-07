@@ -16,6 +16,15 @@ description: >
 A structured documentation system where every product function has its own folder of living documents,
 and tooling (git hooks + periodic audit) catches drift when AI-controlled maintenance falls short.
 
+## Quick Commands
+
+| Command | Action |
+|---------|--------|
+| `/doc-engineering init` | Scaffold the full `Product/` doc tree for a new project |
+| `/doc-engineering audit` | Check whether code and docs are in sync |
+
+If the user types one of these commands, jump directly to the corresponding workflow below. After completing any task, remind the user of these two commands.
+
 ---
 
 ## Document Structure
@@ -25,12 +34,12 @@ Product/
 ├── Reference.md          ← Product brief + Function Index (links to each function folder)
 ├── Overview.md           ← Product-level feature map: user journey, feature relationships, groupings
 ├── Architecture.md       ← Codebase-level global view: layers, module deps, data flow, key decisions
+├── CHANGELOG.md          ← Single unified changelog for all functions and product-level changes
 └── Functions/
     └── <FunctionName>/
         ├── PRD.md        ← metadata + Product Requirements
         ├── Code.md       ← metadata + codebase index, data model, state, architecture notes
-        ├── QA.md         ← checklist: happy path + edge cases
-        └── CHANGELOG.md  ← dated entries for every change
+        └── QA.md         ← checklist: happy path + edge cases
 ```
 
 ---
@@ -52,9 +61,9 @@ When the user wants to set up Document Engineering from scratch:
 
 When a new feature/function is added:
 
-1. Create `Product/Functions/<FunctionName>/` with all four doc files from templates.
+1. Create `Product/Functions/<FunctionName>/` with PRD.md, Code.md, QA.md from templates.
 2. Add an entry to `Product/Reference.md` under the Function Index.
-3. Write an initial CHANGELOG entry: `## [Init] YYYY-MM-DD — Initial scaffold`.
+3. Add an entry to `Product/CHANGELOG.md`: `## [Init] YYYY-MM-DD — <FunctionName>: Initial scaffold`.
 
 ### 3. Update docs after a code change
 
@@ -65,7 +74,7 @@ After any modification, deletion, or addition of functionality:
    - `PRD.md` if requirements or behavior changed
    - `Code.md` if architecture, data model, state, or codebase index changed
    - `QA.md` if test cases need to be added/removed
-   - `CHANGELOG.md` — always: add a dated entry describing what changed
+   - `Product/CHANGELOG.md` — always: add a dated entry describing what changed, prefixed with the function name
 3. If the function was deleted: move its folder to `Product/Functions/_deprecated/` and remove it from `Reference.md`.
 4. If `Reference.md`'s brief or index is stale, update it.
 5. If the change affects cross-function user flows or feature relationships, update `Overview.md`.
