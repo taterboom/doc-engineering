@@ -45,6 +45,8 @@ Use these as the starting point when scaffolding a new function or product.
 2. Step two
 3. ...
 
+<!-- Diagram (optional): add a Flowchart TD or User Journey diagram if the flow has branching decisions -->
+
 ## Feature Map
 
 <How functions relate to each other. Group by theme or dependency.>
@@ -53,6 +55,8 @@ Use these as the starting point when scaffolding a new function or product.
 
 - **FunctionA** — brief role
 - **FunctionB** — brief role, depends on FunctionA
+
+<!-- Diagram (optional): add a Flowchart LR if cross-function dependencies are complex -->
 
 ## Out of Scope
 
@@ -100,6 +104,8 @@ src/
 Input → <LayerA> → <LayerB> → Output
 ```
 
+<!-- Diagram (optional): add a C4 Container or Flowchart LR if 3+ components interact -->
+
 ## Key Design Decisions
 
 - <Why this framework/library/pattern was chosen>
@@ -134,6 +140,8 @@ related_prd:
 
 - As a <user>, I want to <action> so that <outcome>.
 
+<!-- Diagram (optional): add a Flowchart TD if the user flow has meaningful branching paths -->
+
 ## Out of scope
 
 - 
@@ -165,9 +173,13 @@ related_code:
 
 <Describe key data structures, types, schemas, or DB tables relevant to this function.>
 
+<!-- Diagram (optional): add an ERD if 2+ entities have relationships -->
+
 ## State
 
 <Describe how state is managed: local, global, persisted, ephemeral, etc.>
+
+<!-- Diagram (optional): add a State Diagram if the entity has 3+ distinct lifecycle states -->
 
 ## Key decisions
 

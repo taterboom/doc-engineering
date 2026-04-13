@@ -14,6 +14,10 @@
             - QA.md — Checklist: happy path + edge cases
         - _deprecated/ — Deleted function folders moved here
 
+## Diagrams
+
+Mermaid inline blocks where prose/tables fall short. Mapped to sections: Architecture.md → C4/data-flow, Overview.md → user journey/feature map, Code.md → ERD/state/sequence, PRD.md → user flow.
+
 ## Maintenance
 
 ### AI 受控 — 让 AI 自觉维护

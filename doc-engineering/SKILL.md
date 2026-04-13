@@ -44,6 +44,29 @@ Product/
 
 ---
 
+## Diagrams
+
+Add Mermaid diagrams **only when prose or tables fall short** — complex relationships, branching flows, or multi-step sequences that are harder to read as text.
+
+**Where to add them** (always inline in the existing doc file, inside a ```` ```mermaid ```` block):
+
+| File | Section | Diagram Type | Add when |
+|------|---------|-------------|----------|
+| `Architecture.md` | Data Flow | C4 Container, Flowchart LR | 3+ interacting components/services |
+| `Overview.md` | User Journey | User Journey, Flowchart TD | Flow has branching decisions |
+| `Overview.md` | Feature Map | Flowchart LR | Complex cross-function dependencies |
+| `Code.md` | Data Model | ERD | 2+ entities with relationships |
+| `Code.md` | State | State Diagram | Entity has distinct lifecycle states (3+) |
+| `Code.md` | Codebase Index | Sequence Diagram | Complex API/service call chains |
+| `PRD.md` | User stories | Flowchart TD | User flow with meaningful branching |
+
+**Rules:**
+- Keep diagrams under ~20 nodes — split or summarize if bigger
+- Treat diagram updates the same as text updates — part of the doc maintenance workflow
+- For syntax reference: `references/mermaid.md`
+
+---
+
 ## Workflow: What to do for each task
 
 ### 1. Scaffold a new project
@@ -105,6 +128,7 @@ When generating any file, read the corresponding template from `references/templ
 
 - Templates and full file stubs: `references/templates.md`
 - CLAUDE.md rule text: `references/claude-md-rule.md`
+- Mermaid syntax quick reference: `references/mermaid.md`
 - Hook and audit scripts: `scripts/` (self-contained shell scripts, copy to repo)
 
 ---
