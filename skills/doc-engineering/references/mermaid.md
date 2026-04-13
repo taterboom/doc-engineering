@@ -226,6 +226,21 @@ flowchart TD
 
 ---
 
+## Syntax Check
+
+Validate all mermaid blocks in a markdown file via CLI:
+
+```bash
+tmp=$(mktemp -d) && npx -y @mermaid-js/mermaid-cli mmdc -i <file.md> -o "$tmp/out.svg"; rm -rf "$tmp"
+```
+
+- Replace `<file.md>` with the target file, e.g. `Product/Architecture.md`
+- Exit 0 = all blocks valid; non-zero = syntax error (stderr shows details)
+- First run downloads Chromium — subsequent runs are faster
+- To check all doc files at once: `for f in Product/**/*.md; do ... done`
+
+---
+
 ## Key Rules
 
 - Keep under **~20 nodes** — split into multiple diagrams if larger
