@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A Claude Code custom skill for structured documentation engineering — scaffolding, drift detection, and doc lifecycle management.",
   "scripts": {
-    "build": "mkdir -p dist && zip -r dist/doc-engineering.zip doc-engineering/"
+    "build": "mkdir -p dist && zip -r dist/doc-engineering.zip skills/doc-engineering/"
   },
   "repository": {
     "type": "git",
